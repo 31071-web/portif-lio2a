@@ -1,0 +1,1401 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portfólio de Matheus Ismério da Silva — Estudante do 2º ano do Ensino Médio Técnico em Desenvolvimento de Sistemas em Campinas, SP. Conheça minha trajetória, evolução, estudos e objetivos na tecnologia.">
+  <meta name="author" content="Matheus Ismério da Silva">
+  <meta name="theme-color" content="#040711">
+  <title>Matheus Ismério | Desenvolvimento de Sistemas</title>
+
+  <!-- Google Fonts: Plus Jakarta Sans para títulos marcantes, Inter para leitura limpa e JetBrains Mono para código -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Folha de Estilos Principal -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-base text-slate">
+
+  <!-- =========================================================================
+       FUNDO TECNOLÓGICO DIGITAL INTERATIVO (CANVAS 2D + NEBULOSAS + FLUXOS DE DADOS)
+       Substitui a grade de quadrados por um universo tecnológico vivo e contínuo
+       ========================================================================= -->
+  <div class="digital-universe-bg" id="digital-universe-bg" aria-hidden="true">
+    <canvas id="universe-canvas" class="universe-canvas"></canvas>
+    <div class="ambient-nebula nebula-1"></div>
+    <div class="ambient-nebula nebula-2"></div>
+    <div class="ambient-nebula nebula-3"></div>
+    <div class="cursor-glow-aura" id="cursor-glow-aura"></div>
+  </div>
+
+  <!-- Barra de Progresso de Leitura no Topo -->
+  <div id="scroll-progress-bar" class="scroll-progress-bar" aria-hidden="true">
+    <div class="scroll-progress-glow"></div>
+  </div>
+
+  <!-- Notificação Flutuante / Toast para Micro-interações -->
+  <div class="ui-toast" id="ui-toast" role="status" aria-live="polite" aria-hidden="true">
+    <div class="ui-toast-indicator"></div>
+    <span class="ui-toast-msg" id="ui-toast-msg">Notificação</span>
+  </div>
+
+  <!-- Cabeçalho Fixo com Efeito Vidro Escuro (Darkmoon / Concept Velto) -->
+  <header class="site-header" id="site-header">
+    <div class="header-inner container">
+      <!-- Logotipo com Status de Estudante -->
+      <a href="#inicio" class="site-logo" aria-label="Ir para o início do portfólio de Matheus Ismério">
+        <span class="logo-text">MATHEUS<span class="logo-accent">.DEV</span></span>
+        <span class="logo-status-chip">
+          <span class="status-pulse-dot"></span>
+          <span class="status-text">2º ANO // DS</span>
+        </span>
+      </a>
+
+      <!-- Navegação Principal para Desktop -->
+      <nav class="main-nav" id="main-nav" aria-label="Menu principal">
+        <ul class="nav-list">
+          <li><a href="#inicio" class="nav-link active">Início</a></li>
+          <li><a href="#sobre" class="nav-link">Sobre</a></li>
+          <li><a href="#trajetoria" class="nav-link">Trajetória</a></li>
+          <li><a href="#evolucao" class="nav-link">Evolução</a></li>
+          <li><a href="#habilidades" class="nav-link">Habilidades</a></li>
+          <li><a href="#projetos" class="nav-link">Projetos</a></li>
+          <li><a href="#terminal" class="nav-link">Terminal</a></li>
+          <li><a href="#galeria" class="nav-link">Galeria</a></li>
+          <li><a href="#interativo" class="nav-link">Interativo</a></li>
+          <li><a href="#objetivos" class="nav-link">Objetivos</a></li>
+          <li><a href="#contato" class="nav-link nav-link-cta">Contato</a></li>
+        </ul>
+      </nav>
+
+      <!-- Botão Menu Mobile (Hambúrguer) -->
+      <button class="mobile-toggle" id="mobile-menu-toggle" aria-label="Abrir menu de navegação" aria-expanded="false" aria-controls="mobile-drawer">
+        <span class="hamburger-bar"></span>
+        <span class="hamburger-bar"></span>
+        <span class="hamburger-bar"></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Gaveta Mobile / Drawer de Navegação -->
+  <div class="mobile-drawer" id="mobile-drawer" aria-hidden="true">
+    <div class="drawer-header">
+      <span class="drawer-title">NAVEGAÇÃO</span>
+      <button class="drawer-close" id="drawer-close-btn" aria-label="Fechar menu">&times;</button>
+    </div>
+    <ul class="drawer-list">
+      <li><a href="#inicio" class="drawer-link">00 // Início</a></li>
+      <li><a href="#sobre" class="drawer-link">01 // Sobre mim</a></li>
+      <li><a href="#trajetoria" class="drawer-link">02 // Trajetória Escolar</a></li>
+      <li><a href="#evolucao" class="drawer-link">03 // Evolução na Tecnologia</a></li>
+      <li><a href="#habilidades" class="drawer-link">04 // Habilidades e Estudos</a></li>
+      <li><a href="#projetos" class="drawer-link">05 // Laboratório de Projetos</a></li>
+      <li><a href="#terminal" class="drawer-link">06 // Terminal Interativo</a></li>
+      <li><a href="#galeria" class="drawer-link">07 // Galeria Visual</a></li>
+      <li><a href="#interativo" class="drawer-link">08 // Interatividade</a></li>
+      <li><a href="#objetivos" class="drawer-link">09 // Meus Objetivos</a></li>
+      <li><a href="#contato" class="drawer-link drawer-cta">10 // Entrar em Contato</a></li>
+    </ul>
+  </div>
+  <div class="drawer-backdrop" id="drawer-backdrop" aria-hidden="true"></div>
+
+  <!-- CONTEÚDO PRINCIPAL -->
+  <main id="main-content">
+
+    <!-- =========================================================================
+         1. PÁGINA INICIAL / HERO (Concept Velto + Darkmoon + Web Builder Agency)
+         ========================================================================= -->
+    <section class="hero-section" id="inicio">
+      <div class="container hero-container">
+        <!-- Coluna de Texto e Tipografia Marcante -->
+        <div class="hero-content">
+          <div class="hero-kicker-badge">
+            <span class="kicker-dot"></span>
+            <span class="kicker-text">Campinas, SP • Ensino Médio Técnico</span>
+          </div>
+
+          <h1 class="hero-title">
+            <span class="hero-name-first">MATHEUS</span>
+            <span class="hero-name-last gradient-text">ISMÉRIO</span>
+          </h1>
+
+          <p class="hero-role-tag">
+            Estudante de Desenvolvimento de Sistemas
+          </p>
+
+          <p class="hero-phrase">
+            &ldquo;Aprendendo hoje, evoluindo a cada dia e construindo meu caminho na tecnologia.&rdquo;
+          </p>
+
+          <p class="hero-description">
+            Focado em compreender como os sistemas funcionam por dentro, exercitando lógica computacional, desenvolvimento web e modelagem de dados para construir soluções digitais sólidas.
+          </p>
+
+          <div class="hero-actions">
+            <a href="#trajetoria" class="btn btn-primary" id="btn-hero-trajetoria">
+              <span>Conhecer minha trajetória</span>
+              <svg class="btn-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </a>
+            <a href="#projetos" class="btn btn-secondary" id="btn-hero-projetos">
+              <span>Acessar projetos</span>
+              <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <polyline points="16 18 22 12 16 6"></polyline>
+                <polyline points="8 6 2 12 8 18"></polyline>
+              </svg>
+            </a>
+          </div>
+
+          <!-- Métricas Rápidas Autênticas (Sem exageros) -->
+          <div class="hero-telemetry">
+            <div class="telemetry-item">
+              <span class="telemetry-value">2º ANO</span>
+              <span class="telemetry-label">Ensino Técnico</span>
+            </div>
+            <div class="telemetry-divider"></div>
+            <div class="telemetry-item">
+              <span class="telemetry-value">02</span>
+              <span class="telemetry-label">Escolas de Formação</span>
+            </div>
+            <div class="telemetry-divider"></div>
+            <div class="telemetry-item">
+              <span class="telemetry-value">BASE</span>
+              <span class="telemetry-label">Lógica &amp; Web</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Coluna Visual: Elemento Interativo de Programação (Darkmoon / Web Builder HUD) -->
+        <div class="hero-visual">
+          <div class="dev-hud-card" id="dev-hud-card">
+            <!-- Barra Superior do Editor / HUD -->
+            <div class="dev-hud-header">
+              <div class="hud-window-dots">
+                <span class="hud-dot red"></span>
+                <span class="hud-dot yellow"></span>
+                <span class="hud-dot green"></span>
+              </div>
+              <div class="hud-tab-selector" role="tablist">
+                <button class="hud-tab active" role="tab" aria-selected="true" data-tab="perfil">
+                  <span class="hud-tab-icon">ts</span> matheus.ts
+                </button>
+                <button class="hud-tab" role="tab" aria-selected="false" data-tab="stack">
+                  <span class="hud-tab-icon">json</span> estudos.json
+                </button>
+                <button class="hud-tab" role="tab" aria-selected="false" data-tab="rotina">
+                  <span class="hud-tab-icon">sql</span> rotina.sql
+                </button>
+              </div>
+              <div class="hud-status-indicator">
+                <span class="hud-pulse"></span>
+                <span class="hud-status-text">LIVE</span>
+              </div>
+            </div>
+
+            <!-- Corpo de Código Reativo -->
+            <div class="dev-hud-body">
+              <!-- Aba 1: Perfil em TypeScript -->
+              <div class="hud-panel active" id="hud-panel-perfil">
+                <pre class="code-block"><code><span class="code-comment">// Perfil de Estudante Técnico</span>
+<span class="code-keyword">const</span> <span class="code-variable">estudante</span>: <span class="code-type">DevEmFormacao</span> = {
+  <span class="code-property">nome</span>: <span class="code-string">"Matheus Ismério da Silva"</span>,
+  <span class="code-property">cidade</span>: <span class="code-string">"Campinas, SP"</span>,
+  <span class="code-property">formacao</span>: <span class="code-string">"Desenvolvimento de Sistemas"</span>,
+  <span class="code-property">periodo</span>: <span class="code-string">"2º Ano do Ensino Médio Técnico"</span>,
+  <span class="code-property">escola</span>: <span class="code-string">"Colégio Raphael Di Santo"</span>,
+  <span class="code-property">status</span>: <span class="code-string">"Evoluindo a cada dia 🚀"</span>,
+  <span class="code-function">aprenderSempre</span>(): <span class="code-type">boolean</span> {
+    <span class="code-keyword">return</span> <span class="code-boolean">true</span>;
+  }
+};</code></pre>
+              </div>
+
+              <!-- Aba 2: Tecnologias em JSON -->
+              <div class="hud-panel" id="hud-panel-stack">
+                <pre class="code-block"><code><span class="code-comment">// Conhecimentos em Desenvolvimento</span>
+{
+  <span class="code-property">"fundamentosWeb"</span>: [<span class="code-string">"HTML5"</span>, <span class="code-string">"CSS3"</span>, <span class="code-string">"JavaScript"</span>],
+  <span class="code-property">"raciocinio"</span>: <span class="code-string">"Lógica de Programação &amp; Algoritmos"</span>,
+  <span class="code-property">"dados"</span>: <span class="code-string">"Banco de Dados &amp; Modelagem SQL"</span>,
+  <span class="code-property">"infraestrutura"</span>: <span class="code-string">"Sistemas Operacionais &amp; Redes"</span>,
+  <span class="code-property">"postura"</span>: <span class="code-string">"Curiosidade, dedicação e prática diária"</span>
+}</code></pre>
+              </div>
+
+              <!-- Aba 3: Rotina em SQL -->
+              <div class="hud-panel" id="hud-panel-rotina">
+                <pre class="code-block"><code><span class="code-comment">-- Consulta de Evolução Contínua</span>
+<span class="code-keyword">SELECT</span> meta, acao, resultado
+<span class="code-keyword">FROM</span> jornada_estudos
+<span class="code-keyword">WHERE</span> aluno = <span class="code-string">'Matheus Ismério'</span>
+<span class="code-keyword">ORDER BY</span> dedicacao <span class="code-keyword">DESC</span>;
+
+<span class="code-comment">-- Saída: 1 linha encontrada</span>
+<span class="code-string">&gt; 'Construir base sólida' | 'Prática nas aulas' | 'Crescimento real'</span></code></pre>
+              </div>
+            </div>
+
+            <!-- Rodapé do HUD com Informações Interativas -->
+            <div class="dev-hud-footer">
+              <span class="hud-footer-hint">✦ Clique nas abas para inspecionar os dados</span>
+              <span class="hud-line-col">UTF-8 • LF • 2º Ano Técnico</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Indicador de Rolagem Sutil -->
+      <a href="#sobre" class="scroll-down-hint" aria-label="Rolar para a seção sobre mim">
+        <span class="scroll-pill">
+          <span class="scroll-wheel"></span>
+        </span>
+        <span class="scroll-text">Explorar portfólio</span>
+      </a>
+    </section>
+
+    <!-- Divisor Fino de Estilo Cyber / Minimalista -->
+    <div class="section-divider-line" aria-hidden="true"></div>
+
+    <!-- =========================================================================
+         2. SEÇÃO SOBRE MIM (Concept Velto Editorial Layout)
+         ========================================================================= -->
+    <section class="section sobre-section" id="sobre">
+      <div class="container">
+        <!-- Cabeçalho de Seção com Kicker Editorial -->
+        <div class="section-header-editorial">
+          <span class="section-kicker">01 // APRESENTAÇÃO</span>
+          <h2 class="section-title-large">Sobre mim</h2>
+          <p class="section-lead">
+            Conheça minha história, minha dedicação aos estudos e o que me motiva na área de informática.
+          </p>
+        </div>
+
+        <div class="sobre-layout-grid">
+          <!-- Coluna 1: Declaração Principal em Tipografia Marcante -->
+          <div class="sobre-editorial-card">
+            <div class="editorial-quote-mark" aria-hidden="true">&ldquo;</div>
+            <p class="sobre-main-quote">
+              Meu nome é <strong>Matheus Ismério da Silva</strong> e sou estudante do <strong>2º ano do Ensino Médio Técnico em Desenvolvimento de Sistemas</strong>, em <strong>Campinas, SP</strong>.
+            </p>
+            <p class="sobre-sub-quote">
+              Gosto de tecnologia e estou sempre buscando aprender coisas novas, conhecer ferramentas diferentes e desenvolver minhas habilidades.
+            </p>
+            <p class="sobre-final-quote">
+              Estou no começo da minha jornada na programação e quero continuar evoluindo, entender como os sistemas funcionam e descobrir novas possibilidades dentro da informática.
+            </p>
+
+            <div class="sobre-pill-tags">
+              <span class="tag-pill">Campinas, SP</span>
+              <span class="tag-pill">Ensino Médio Técnico</span>
+              <span class="tag-pill">Desenvolvimento de Sistemas</span>
+              <span class="tag-pill">2º Ano</span>
+              <span class="tag-pill">Aprendizado Contínuo</span>
+            </div>
+          </div>
+
+          <!-- Coluna 2: Bento Grid de Pilares Pessoais -->
+          <div class="sobre-bento-grid">
+            <div class="bento-box bento-box-primary">
+              <div class="bento-icon-wrapper">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+                  <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
+                </svg>
+              </div>
+              <h3 class="bento-title">Formação Técnica Atual</h3>
+              <p class="bento-desc">
+                Cursando o 2º ano técnico, conciliando as matérias do ensino médio regular com matérias específicas de programação, bancos de dados e engenharia de software.
+              </p>
+            </div>
+
+            <div class="bento-box">
+              <div class="bento-icon-wrapper">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"></path>
+                  <path d="M2 12h20"></path>
+                </svg>
+              </div>
+              <h3 class="bento-title">Curiosidade &amp; Descoberta</h3>
+              <p class="bento-desc">
+                Interesse constante em descobrir como softwares, servidores e sistemas operacionais interagem para criar soluções do mundo real.
+              </p>
+            </div>
+
+            <div class="bento-box">
+              <div class="bento-icon-wrapper">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <polyline points="16 18 22 12 16 6"></polyline>
+                  <polyline points="8 6 2 12 8 18"></polyline>
+                </svg>
+              </div>
+              <h3 class="bento-title">Prática &amp; Disciplina</h3>
+              <p class="bento-desc">
+                Compreendo que programar é uma habilidade que se constrói com repetição, testes e resolução paciente de erros.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Divisor Fino -->
+    <div class="section-divider-line" aria-hidden="true"></div>
+
+    <!-- =========================================================================
+         3. SEÇÃO TRAJETÓRIA ESCOLAR (Foco em Autenticidade)
+         ========================================================================= -->
+    <section class="section trajetoria-section" id="trajetoria">
+      <div class="container">
+        <div class="section-header-editorial">
+          <span class="section-kicker">02 // TRAJETÓRIA ESCOLAR</span>
+          <h2 class="section-title-large">Onde minha base está sendo construída</h2>
+          <p class="section-lead">
+            As duas instituições fundamentais que marcam minha formação escolar e o meu ingresso na área técnica em Campinas, SP.
+          </p>
+        </div>
+
+        <div class="schools-cards-grid">
+          <!-- Instituição 1: Colégio Vivendo e Aprendendo -->
+          <article class="school-card">
+            <div class="school-card-top">
+              <div class="school-logo-frame">
+                <img src="images/logo-vivendo-e-aprendendo.png" 
+                     alt="Logotipo do Colégio Vivendo e Aprendendo" 
+                     class="school-logo"
+                     loading="lazy">
+              </div>
+              <span class="school-phase-badge">Ensino Fundamental</span>
+            </div>
+
+            <div class="school-card-content">
+              <h3 class="school-name">Colégio Vivendo e Aprendendo</h3>
+              <p class="school-location-row">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                  <circle cx="12" cy="10" r="3"></circle>
+                </svg>
+                <span>Campinas, SP</span>
+              </p>
+              <p class="school-summary">
+                Instituição onde construí passos essenciais da minha formação educacional e pessoal. Período fundamental que moldou meus primeiros hábitos de estudo, responsabilidade e convivência em grupo.
+              </p>
+              <div class="school-highlights">
+                <span class="school-chip">Formação Básica</span>
+                <span class="school-chip">Desenvolvimento Pessoal</span>
+                <span class="school-chip">Bases Escolares</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Instituição 2: Colégio Raphael Di Santo -->
+          <article class="school-card school-card-featured">
+            <div class="school-card-top">
+              <div class="school-logo-frame">
+                <img src="images/logo-raphael-di-santo.png" 
+                     alt="Logotipo do Colégio Raphael Di Santo" 
+                     class="school-logo"
+                     loading="lazy">
+              </div>
+              <span class="school-phase-badge active-phase">Ensino Médio Técnico • Atual</span>
+            </div>
+
+            <div class="school-card-content">
+              <h3 class="school-name">Colégio Raphael Di Santo</h3>
+              <p class="school-location-row">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                  <circle cx="12" cy="10" r="3"></circle>
+                </svg>
+                <span>Unidade Garcia — Campinas, SP</span>
+              </p>
+              <p class="school-summary">
+                Colégio onde curso o 2º ano do Ensino Médio Técnico em Desenvolvimento de Sistemas. É aqui que estou tendo contato diário com conceitos técnicos, programação, banco de dados e raciocínio lógico estruturado.
+              </p>
+              <div class="school-highlights">
+                <span class="school-chip">2º Ano Técnico</span>
+                <span class="school-chip">Desenvolvimento de Sistemas</span>
+                <span class="school-chip">Aulas Práticas de TI</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Divisor Fino -->
+    <div class="section-divider-line" aria-hidden="true"></div>
+
+    <!-- =========================================================================
+         4. SEÇÃO EVOLUÇÃO (REFORMULAÇÃO COMPLETA — 100% ESTÁVEL, SEM BUGS)
+         ========================================================================= -->
+    <section class="section evolucao-section" id="evolucao">
+      <div class="container">
+        <div class="section-header-editorial">
+          <span class="section-kicker">03 // PROGRESSO TRANSPARENTE</span>
+          <h2 class="section-title-large">Minha evolução na tecnologia</h2>
+          <p class="section-lead">
+            Apresentação realista do meu desenvolvimento como estudante: da base que estou construindo hoje até os objetivos futuros que pretendo alcançar.
+          </p>
+        </div>
+
+        <!-- Controle de Navegação de Etapas (Acessível, sem quebras) -->
+        <div class="evolution-nav-tabs" role="tablist" aria-label="Fases da evolução">
+          <button class="evo-tab-btn active" role="tab" aria-selected="true" data-step-target="1">
+            <span class="evo-tab-number">01</span>
+            <span class="evo-tab-label">Onde estou</span>
+          </button>
+          <button class="evo-tab-btn" role="tab" aria-selected="false" data-step-target="2">
+            <span class="evo-tab-number">02</span>
+            <span class="evo-tab-label">Próximo passo</span>
+          </button>
+          <button class="evo-tab-btn" role="tab" aria-selected="false" data-step-target="3">
+            <span class="evo-tab-number">03</span>
+            <span class="evo-tab-label">Onde quero chegar</span>
+          </button>
+        </div>
+
+        <!-- Trilha de Cartões de Evolução com Tipografia Nítida e Robusta -->
+        <div class="evolution-grid" id="evolution-grid">
+          <!-- ETAPA 1: ONDE ESTOU -->
+          <article class="evo-card active-card" data-step="1">
+            <div class="evo-card-header">
+              <span class="evo-stage-number">01</span>
+              <div class="evo-stage-status status-present">
+                <span class="status-indicator-dot"></span>
+                <span>Etapa Atual</span>
+              </div>
+            </div>
+
+            <div class="evo-card-body">
+              <h3 class="evo-stage-title">Onde estou:</h3>
+              <p class="evo-stage-description">
+                Aprendendo os fundamentos da programação e conhecendo as ferramentas essenciais da área de tecnologia.
+              </p>
+
+              <div class="evo-stage-details">
+                <h4 class="evo-details-title">Foco neste momento:</h4>
+                <ul class="evo-points-list">
+                  <li>Compreender a estrutura de páginas web com HTML5 e estilização com CSS3.</li>
+                  <li>Praticar lógica de programação com variáveis, condicionais e laços.</li>
+                  <li>Primeiros passos com JavaScript para adicionar dinamismo e interatividade.</li>
+                  <li>Noções básicas de computadores, hardware e sistemas operacionais.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="evo-card-footer">
+              <span class="evo-footer-tag">Bases &amp; Fundamentos</span>
+              <span class="evo-footer-indicator">Em andamento</span>
+            </div>
+          </article>
+
+          <!-- ETAPA 2: MEU PRÓXIMO PASSO -->
+          <article class="evo-card" data-step="2">
+            <div class="evo-card-header">
+              <span class="evo-stage-number">02</span>
+              <div class="evo-stage-status status-next">
+                <span class="status-indicator-dot"></span>
+                <span>Próximo Passo</span>
+              </div>
+            </div>
+
+            <div class="evo-card-body">
+              <h3 class="evo-stage-title">Meu próximo passo:</h3>
+              <p class="evo-stage-description">
+                Praticar os conteúdos das aulas técnicas e desenvolver minhas habilidades com projetos de exercícios.
+              </p>
+
+              <div class="evo-stage-details">
+                <h4 class="evo-details-title">Metas a curto prazo:</h4>
+                <ul class="evo-points-list">
+                  <li>Fixar os conteúdos teóricos com desafios práticos de código no computador.</li>
+                  <li>Aprofundar em conceitos de bancos de dados relacionais e modelagem de tabelas.</li>
+                  <li>Dominar a manipulação do DOM e eventos com JavaScript moderno.</li>
+                  <li>Aprender a organizar arquivos e utilizar versionamento básico de código.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="evo-card-footer">
+              <span class="evo-footer-tag">Prática &amp; Fixação</span>
+              <span class="evo-footer-indicator">Planejado</span>
+            </div>
+          </article>
+
+          <!-- ETAPA 3: ONDE QUERO CHEGAR -->
+          <article class="evo-card" data-step="3">
+            <div class="evo-card-header">
+              <span class="evo-stage-number">03</span>
+              <div class="evo-stage-status status-future">
+                <span class="status-indicator-dot"></span>
+                <span>Visão de Futuro</span>
+              </div>
+            </div>
+
+            <div class="evo-card-body">
+              <h3 class="evo-stage-title">Onde quero chegar:</h3>
+              <p class="evo-stage-description">
+                Criar meus próprios projetos completos e descobrir qual área da tecnologia combina mais comigo.
+              </p>
+
+              <div class="evo-stage-details">
+                <h4 class="evo-details-title">Objetivos de longo prazo:</h4>
+                <ul class="evo-points-list">
+                  <li>Desenvolver sistemas funcionais que resolvam necessidades reais do dia a dia.</li>
+                  <li>Aprender novas linguagens de programação e expandir minha visão de mercado.</li>
+                  <li>Identificar a área de atuação (Front-end, Back-end, Dados ou Infraestrutura) ideal para minha carreira.</li>
+                  <li>Ingressar com segurança no mercado profissional de tecnologia.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="evo-card-footer">
+              <span class="evo-footer-tag">Projetos &amp; Carreira</span>
+              <span class="evo-footer-indicator">Meta Contínua</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Divisor Fino -->
+    <div class="section-divider-line" aria-hidden="true"></div>
+
+    <!-- =========================================================================
+         5. SEÇÃO HABILIDADES / CONHECIMENTOS (Honesta — Sem Porcentagens Falsas)
+         ========================================================================= -->
+    <section class="section habilidades-section" id="habilidades">
+      <div class="container">
+        <div class="section-header-editorial">
+          <span class="section-kicker">04 // CONHECIMENTOS TÉCNICOS</span>
+          <h2 class="section-title-large">O que estou aprendendo</h2>
+          <p class="section-lead">
+            Assuntos e linguagens que estudo no curso técnico. Sem barras de porcentagem inventadas — apenas uma visão autêntica de cada fundamento em desenvolvimento.
+          </p>
+        </div>
+
+        <div class="skills-grid">
+          <!-- Card 1: HTML5 -->
+          <article class="skill-card" data-tech="html" tabindex="0" role="button" aria-label="Ver detalhes de HTML">
+            <div class="skill-card-top">
+              <div class="skill-icon-box icon-html">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <polyline points="16 18 22 12 16 6"></polyline>
+                  <polyline points="8 6 2 12 8 18"></polyline>
+                </svg>
+              </div>
+              <span class="skill-badge">Estruturação</span>
+            </div>
+            <h3 class="skill-title">HTML5</h3>
+            <p class="skill-summary">
+              Linguagem de marcação usada para estruturar e dar semântica às páginas na web.
+            </p>
+            <div class="skill-card-footer">
+              <span class="skill-status-text">✦ Em estudo nas aulas</span>
+              <span class="skill-expand-arrow">→</span>
+            </div>
+          </article>
+
+          <!-- Card 2: CSS3 -->
+          <article class="skill-card" data-tech="css" tabindex="0" role="button" aria-label="Ver detalhes de CSS">
+            <div class="skill-card-top">
+              <div class="skill-icon-box icon-css">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"></path>
+                  <path d="M2 12h20"></path>
+                </svg>
+              </div>
+              <span class="skill-badge">Estilização</span>
+            </div>
+            <h3 class="skill-title">CSS3</h3>
+            <p class="skill-summary">
+              Folhas de estilo responsáveis pelo visual, tipografia, cores, espaçamento e design responsivo.
+            </p>
+            <div class="skill-card-footer">
+              <span class="skill-status-text">✦ Em estudo nas aulas</span>
+              <span class="skill-expand-arrow">→</span>
+            </div>
+          </article>
+
+          <!-- Card 3: JavaScript -->
+          <article class="skill-card" data-tech="javascript" tabindex="0" role="button" aria-label="Ver detalhes de JavaScript">
+            <div class="skill-card-top">
+              <div class="skill-icon-box icon-js">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+                </svg>
+              </div>
+              <span class="skill-badge">Interatividade</span>
+            </div>
+            <h3 class="skill-title">JavaScript</h3>
+            <p class="skill-summary">
+              Linguagem de programação para dar comportamento dinâmico e resposta a eventos do usuário na web.
+            </p>
+            <div class="skill-card-footer">
+              <span class="skill-status-text">✦ Prática de fundamentos</span>
+              <span class="skill-expand-arrow">→</span>
+            </div>
+          </article>
+
+          <!-- Card 4: Lógica de Programação -->
+          <article class="skill-card" data-tech="logica" tabindex="0" role="button" aria-label="Ver detalhes de Lógica de Programação">
+            <div class="skill-card-top">
+              <div class="skill-icon-box icon-logica">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <rect x="3" y="3" width="7" height="7"></rect>
+                  <rect x="14" y="3" width="7" height="7"></rect>
+                  <rect x="14" y="14" width="7" height="7"></rect>
+                  <rect x="3" y="14" width="7" height="7"></rect>
+                </svg>
+              </div>
+              <span class="skill-badge">Raciocínio</span>
+            </div>
+            <h3 class="skill-title">Lógica de Programação</h3>
+            <p class="skill-summary">
+              Construção de algoritmos estruturados, condições lógicas, variáveis e laços de repetição.
+            </p>
+            <div class="skill-card-footer">
+              <span class="skill-status-text">✦ Base fundamental</span>
+              <span class="skill-expand-arrow">→</span>
+            </div>
+          </article>
+
+          <!-- Card 5: Banco de Dados -->
+          <article class="skill-card" data-tech="banco-dados" tabindex="0" role="button" aria-label="Ver detalhes de Banco de Dados">
+            <div class="skill-card-top">
+              <div class="skill-icon-box icon-db">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <ellipse cx="12" cy="5" rx="9" ry="3"></ellipse>
+                  <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path>
+                  <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path>
+                </svg>
+              </div>
+              <span class="skill-badge">Armazenamento</span>
+            </div>
+            <h3 class="skill-title">Banco de Dados</h3>
+            <p class="skill-summary">
+              Conceitos iniciais de modelagem de tabelas, relacionamentos, chaves primárias e consultas SQL.
+            </p>
+            <div class="skill-card-footer">
+              <span class="skill-status-text">✦ Primeiros contatos</span>
+              <span class="skill-expand-arrow">→</span>
+            </div>
+          </article>
+
+          <!-- Card 6: Informática e Sistemas -->
+          <article class="skill-card" data-tech="informatica" tabindex="0" role="button" aria-label="Ver detalhes de Informática">
+            <div class="skill-card-top">
+              <div class="skill-icon-box icon-info">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                  <line x1="8" y1="21" x2="16" y2="21"></line>
+                  <line x1="12" y1="17" x2="12" y2="21"></line>
+                </svg>
+              </div>
+              <span class="skill-badge">Fundamentos</span>
+            </div>
+            <h3 class="skill-title">Informática &amp; Sistemas</h3>
+            <p class="skill-summary">
+              Compreensão de sistemas operacionais, componentes de hardware, redes e ambiente de desenvolvimento.
+            </p>
+            <div class="skill-card-footer">
+              <span class="skill-status-text">✦ Visão de arquitetura</span>
+              <span class="skill-expand-arrow">→</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Modal para Detalhamento dos Conhecimentos -->
+    <div class="tech-modal-backdrop" id="tech-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+      <div class="tech-modal-card">
+        <button class="tech-modal-close" id="modal-close-btn" aria-label="Fechar janela de detalhes">&times;</button>
+        <div class="tech-modal-header">
+          <div class="tech-modal-icon-badge" id="modal-icon-badge"></div>
+          <div>
+            <span class="tech-modal-kicker">CONHECIMENTO EM DESENVOLVIMENTO</span>
+            <h3 class="tech-modal-title" id="modal-title">Nome da Tecnologia</h3>
+          </div>
+        </div>
+        <div class="tech-modal-body">
+          <div class="modal-section">
+            <h4 class="modal-label">O que este assunto representa:</h4>
+            <p class="modal-text" id="modal-description"></p>
+          </div>
+          <div class="modal-section">
+            <h4 class="modal-label">Como faz parte da minha formação:</h4>
+            <p class="modal-text" id="modal-learning"></p>
+          </div>
+        </div>
+        <div class="tech-modal-footer">
+          <button class="btn btn-secondary modal-confirm-btn" id="modal-confirm-btn">Fechar detalhes</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Divisor Fino -->
+    <div class="section-divider-line" aria-hidden="true"></div>
+
+    <!-- =========================================================================
+         6. SEÇÃO PROJETOS (Laboratório para Projetos Futuros)
+         ========================================================================= -->
+    <section class="section projetos-section" id="projetos">
+      <div class="container">
+        <div class="section-header-editorial">
+          <span class="section-kicker">05 // LABORATÓRIO DE CRIAÇÃO</span>
+          <h2 class="section-title-large">Meus projetos futuros</h2>
+          <p class="section-lead">
+            Espaço projetado para receber as aplicações reais que desenvolverei ao longo da minha jornada técnica.
+          </p>
+        </div>
+
+        <!-- Banner Explicativo Autêntico e Transparente -->
+        <div class="projetos-notice-card">
+          <div class="notice-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path>
+            </svg>
+          </div>
+          <div class="notice-text">
+            <h3 class="notice-title">Área preparada para projetos futuros</h3>
+            <p class="notice-desc">
+              Ainda estou aprendendo e não tenho projetos próprios publicados para apresentar como um portfólio profissional. Conforme eu avançar nas aulas técnicas e desenvolver meus próprios sites, sistemas e exercícios práticos, publicarei os códigos, links e demonstrações diretamente aqui.
+            </p>
+          </div>
+        </div>
+
+        <!-- Mockups / Blueprints de Projetos em Estruturação -->
+        <div class="future-blueprints-grid">
+          <!-- Projeto Futuro 1: Web Front-End -->
+          <article class="blueprint-card">
+            <div class="blueprint-header">
+              <span class="blueprint-tag">LAB-01 // FRONT-END</span>
+              <span class="blueprint-status">Em Planejamento</span>
+            </div>
+            <div class="blueprint-preview-box">
+              <div class="blueprint-code-ghost">
+                <span class="ghost-line w-80"></span>
+                <span class="ghost-line w-60"></span>
+                <span class="ghost-line w-90"></span>
+                <span class="ghost-line w-40"></span>
+              </div>
+              <span class="blueprint-watermark">&lt;/&gt;</span>
+            </div>
+            <div class="blueprint-content">
+              <h3 class="blueprint-title">Aplicação Web Responsiva</h3>
+              <p class="blueprint-desc">
+                Criação de uma interface web moderna aplicando HTML5 semântico, flexbox, CSS grid e manipulação dinâmica de elementos com JavaScript puro.
+              </p>
+              <div class="blueprint-tech-pills">
+                <span>HTML5</span>
+                <span>CSS3</span>
+                <span>JavaScript</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Projeto Futuro 2: Banco de Dados -->
+          <article class="blueprint-card">
+            <div class="blueprint-header">
+              <span class="blueprint-tag">LAB-02 // DADOS &amp; LÓGICA</span>
+              <span class="blueprint-status">Em Estudo</span>
+            </div>
+            <div class="blueprint-preview-box">
+              <div class="blueprint-code-ghost">
+                <span class="ghost-line w-50"></span>
+                <span class="ghost-line w-90"></span>
+                <span class="ghost-line w-70"></span>
+                <span class="ghost-line w-60"></span>
+              </div>
+              <span class="blueprint-watermark">SQL</span>
+            </div>
+            <div class="blueprint-content">
+              <h3 class="blueprint-title">Sistema de Cadastro e Consultas</h3>
+              <p class="blueprint-desc">
+                Exercício de modelagem de tabelas relacionais, integridade de dados e execução de consultas estruturadas para fixação de banco de dados.
+              </p>
+              <div class="blueprint-tech-pills">
+                <span>SQL</span>
+                <span>Modelagem</span>
+                <span>Lógica</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Projeto Futuro 3: Utilitário em JS -->
+          <article class="blueprint-card">
+            <div class="blueprint-header">
+              <span class="blueprint-tag">LAB-03 // ALGORITMOS</span>
+              <span class="blueprint-status">Em Desenvolvimento</span>
+            </div>
+            <div class="blueprint-preview-box">
+              <div class="blueprint-code-ghost">
+                <span class="ghost-line w-70"></span>
+                <span class="ghost-line w-40"></span>
+                <span class="ghost-line w-80"></span>
+                <span class="ghost-line w-50"></span>
+              </div>
+              <span class="blueprint-watermark">JS</span>
+            </div>
+            <div class="blueprint-content">
+              <h3 class="blueprint-title">Utilitário Interativo de Cálculos</h3>
+              <p class="blueprint-desc">
+                Desenvolvimento de script funcional para solucionar problemas lógicos de matemática ou organização de rotina com feedback visual instantâneo.
+              </p>
+              <div class="blueprint-tech-pills">
+                <span>JavaScript</span>
+                <span>DOM</span>
+                <span>Eventos</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Divisor Fino -->
+    <div class="section-divider-line" aria-hidden="true"></div>
+
+    <!-- =========================================================================
+         7. SEÇÃO TERMINAL INTERATIVO (Darkmoon Cyber Aesthetic)
+         ========================================================================= -->
+    <section class="section terminal-section" id="terminal">
+      <div class="container">
+        <div class="section-header-editorial">
+          <span class="section-kicker">06 // TERMINAL INTERATIVO</span>
+          <h2 class="section-title-large">Explore via linha de comando</h2>
+          <p class="section-lead">
+            Navegue pelas informações do portfólio executando comandos simulados no terminal. Digite ou clique nas sugestões!
+          </p>
+        </div>
+
+        <div class="terminal-container">
+          <!-- Barra Superior do Terminal -->
+          <div class="terminal-bar">
+            <div class="terminal-window-buttons">
+              <span class="term-btn close" title="Fechar"></span>
+              <span class="term-btn minimize" title="Minimizar"></span>
+              <span class="term-btn maximize" title="Maximizar"></span>
+            </div>
+            <div class="terminal-title-label">
+              <span class="terminal-icon">❯_</span> matheus@portfolio: ~ (bash)
+            </div>
+            <div class="terminal-controls">
+              <button class="btn-clear-term" id="btn-clear-term" title="Limpar histórico">Limpar tela</button>
+            </div>
+          </div>
+
+          <!-- Comandos Rápidos Clicáveis -->
+          <div class="terminal-shortcuts" aria-label="Comandos rápidos disponíveis">
+            <span class="shortcuts-label">Atalhos:</span>
+            <button class="term-chip" data-cmd="sobre">sobre</button>
+            <button class="term-chip" data-cmd="trajetoria">trajetoria</button>
+            <button class="term-chip" data-cmd="habilidades">habilidades</button>
+            <button class="term-chip" data-cmd="evolucao">evolucao</button>
+            <button class="term-chip" data-cmd="objetivos">objetivos</button>
+            <button class="term-chip" data-cmd="ajuda">ajuda</button>
+          </div>
+
+          <!-- Saída do Terminal -->
+          <div class="terminal-screen" id="terminal-screen" aria-live="polite">
+            <div class="terminal-welcome">
+              <p class="t-dim">Terminal de Matheus Ismério da Silva [Versão 2.0 - DS]</p>
+              <p class="t-dim">Sistema operacional: Ambiente simulado de estudos técnicos.</p>
+              <p class="t-dim">Dica: Digite <span class="t-hl">ajuda</span> ou clique nos comandos acima para começar.</p>
+              <br>
+            </div>
+          </div>
+
+          <!-- Linha de Entrada do Terminal -->
+          <form class="terminal-input-bar" id="terminal-form" autocomplete="off">
+            <label for="terminal-cli-input" class="terminal-prompt-symbol">
+              <span class="p-user">matheus</span><span class="p-sep">@</span><span class="p-host">portfolio</span><span class="p-colon">:</span><span class="p-path">~</span><span class="p-dollar">$</span>
+            </label>
+            <input type="text" 
+                   id="terminal-cli-input" 
+                   class="terminal-cli-input" 
+                   placeholder="digite um comando (ex: sobre, ajuda)..." 
+                   spellcheck="false" 
+                   autocapitalize="off" 
+                   autocorrect="off">
+            <button type="submit" class="terminal-submit-btn" aria-label="Enviar comando">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <line x1="22" y1="2" x2="11" y2="13"></line>
+                <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+              </svg>
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- Divisor Fino -->
+    <div class="section-divider-line" aria-hidden="true"></div>
+
+    <!-- =========================================================================
+         8. SEÇÃO GALERIA VISUAL DE TECNOLOGIA (Darkmoon Visual Immersion)
+         ========================================================================= -->
+    <section class="section galeria-section" id="galeria">
+      <div class="container">
+        <div class="section-header-editorial">
+          <span class="section-kicker">07 // IMERSÃO VISUAL</span>
+          <h2 class="section-title-large">Galeria visual de tecnologia</h2>
+          <p class="section-lead">
+            Conceitos, máquinas e ambientes que representam o universo da computação e inspiram minha rotina de estudos.
+          </p>
+        </div>
+
+        <!-- Visualizador Interativo da Galeria com Navegação Suave -->
+        <div class="galeria-viewer" id="galeria-viewer">
+          <!-- Controles Superiores -->
+          <div class="galeria-controls-bar">
+            <span class="galeria-counter-display" id="galeria-counter">01 / 05</span>
+            <div class="galeria-arrows">
+              <button class="galeria-arrow-btn" id="galeria-prev" aria-label="Imagem anterior">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="15 18 9 12 15 6"></polyline></svg>
+              </button>
+              <button class="galeria-arrow-btn" id="galeria-next" aria-label="Próxima imagem">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+              </button>
+            </div>
+          </div>
+
+          <!-- Trilho de Slides da Galeria -->
+          <div class="galeria-slides-wrapper" id="galeria-slides-wrapper">
+            <!-- Slide 1: Programação -->
+            <article class="galeria-slide active-slide" data-slide="0">
+              <div class="slide-image-box">
+                <img src="images/galeria-programacao.jpg" alt="Conceito visual de programação e código na tela" class="slide-img" loading="lazy">
+                <div class="slide-image-overlay"></div>
+              </div>
+              <div class="slide-info-panel">
+                <span class="slide-kicker">01 // CÓDIGO &amp; LÓGICA</span>
+                <h3 class="slide-title">A Arte da Programação</h3>
+                <p class="slide-text">
+                  Transformar raciocínio estruturado em instruções claras para a máquina. A prática de resolver desafios através de sintaxe limpa, lógica e métodos computacionais.
+                </p>
+                <div class="slide-tags">
+                  <span>Sintaxe</span>
+                  <span>Algoritmos</span>
+                  <span>Resolução de Problemas</span>
+                </div>
+              </div>
+            </article>
+
+            <!-- Slide 2: Computadores & Hardware -->
+            <article class="galeria-slide" data-slide="1">
+              <div class="slide-image-box">
+                <img src="images/galeria-computadores.jpg" alt="Hardware e processador de computador" class="slide-img" loading="lazy">
+                <div class="slide-image-overlay"></div>
+              </div>
+              <div class="slide-info-panel">
+                <span class="slide-kicker">02 // ARQUITETURA &amp; CIRCUITOS</span>
+                <h3 class="slide-title">Arquitetura de Computadores</h3>
+                <p class="slide-text">
+                  A base física que possibilita o software: processadores, memórias e circuitos trabalhando em sincronia para executar bilhões de operações por segundo.
+                </p>
+                <div class="slide-tags">
+                  <span>Hardware</span>
+                  <span>Circuitos</span>
+                  <span>Sistemas</span>
+                </div>
+              </div>
+            </article>
+
+            <!-- Slide 3: Criação Web Moderna -->
+            <article class="galeria-slide" data-slide="2">
+              <div class="slide-image-box">
+                <img src="images/galeria-desenvolvimento.jpg" alt="Desenvolvimento web e interfaces" class="slide-img" loading="lazy">
+                <div class="slide-image-overlay"></div>
+              </div>
+              <div class="slide-info-panel">
+                <span class="slide-kicker">03 // WEB &amp; INTERFACES</span>
+                <h3 class="slide-title">Criação Web Moderna</h3>
+                <p class="slide-text">
+                  União de HTML semântico, estilos CSS avançados e scripts dinâmicos para criar páginas responsivas, acessíveis e visualmente marcantes em qualquer tela.
+                </p>
+                <div class="slide-tags">
+                  <span>HTML5 &amp; CSS3</span>
+                  <span>JavaScript</span>
+                  <span>Design Responsivo</span>
+                </div>
+              </div>
+            </article>
+
+            <!-- Slide 4: Ambiente de Aprendizado -->
+            <article class="galeria-slide" data-slide="3">
+              <div class="slide-image-box">
+                <img src="images/galeria-ambiente.jpg" alt="Ambiente de estudos e programação" class="slide-img" loading="lazy">
+                <div class="slide-image-overlay"></div>
+              </div>
+              <div class="slide-info-panel">
+                <span class="slide-kicker">04 // FOCO &amp; PRÁTICA</span>
+                <h3 class="slide-title">Ambiente de Aprendizado</h3>
+                <p class="slide-text">
+                  A rotina de dedicação escolar: revisar as aulas do curso técnico, abrir o editor de código e transformar a curiosidade em conhecimento prático.
+                </p>
+                <div class="slide-tags">
+                  <span>Dedicação</span>
+                  <span>Constância</span>
+                  <span>Prática Diária</span>
+                </div>
+              </div>
+            </article>
+
+            <!-- Slide 5: Tecnologia & Criatividade -->
+            <article class="galeria-slide" data-slide="4">
+              <div class="slide-image-box">
+                <img src="images/galeria-criatividade.jpg" alt="Conceito abstrato de tecnologia e criatividade" class="slide-img" loading="lazy">
+                <div class="slide-image-overlay"></div>
+              </div>
+              <div class="slide-info-panel">
+                <span class="slide-kicker">05 // FUTURO &amp; IDEIAS</span>
+                <h3 class="slide-title">Tecnologia &amp; Criatividade</h3>
+                <p class="slide-text">
+                  O desenvolvimento de software como um meio para construir novas ideias e soluções digitais funcionais para o benefício das pessoas.
+                </p>
+                <div class="slide-tags">
+                  <span>Inovação</span>
+                  <span>Novas Tecnologias</span>
+                  <span>Evolução</span>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <!-- Indicadores de Pontos / Dots -->
+          <div class="galeria-dots-container" id="galeria-dots" role="tablist" aria-label="Navegar pelos slides da galeria">
+            <button class="galeria-dot active" role="tab" aria-selected="true" data-slide-index="0" aria-label="Slide 1"></button>
+            <button class="galeria-dot" role="tab" aria-selected="false" data-slide-index="1" aria-label="Slide 2"></button>
+            <button class="galeria-dot" role="tab" aria-selected="false" data-slide-index="2" aria-label="Slide 3"></button>
+            <button class="galeria-dot" role="tab" aria-selected="false" data-slide-index="3" aria-label="Slide 4"></button>
+            <button class="galeria-dot" role="tab" aria-selected="false" data-slide-index="4" aria-label="Slide 5"></button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Divisor Fino -->
+    <div class="section-divider-line" aria-hidden="true"></div>
+
+    <!-- =========================================================================
+         9. SEÇÃO INTERATIVIDADE & INSPIRAÇÃO (Web Builder Agency Motion)
+         ========================================================================= -->
+    <section class="section interativo-section" id="interativo">
+      <div class="container">
+        <div class="section-header-editorial">
+          <span class="section-kicker">08 // EXPERIÊNCIA INTERATIVA</span>
+          <h2 class="section-title-large">Interatividade &amp; Inspiração</h2>
+          <p class="section-lead">
+            Elementos interativos dinâmicos com pensamentos e ideias sobre a persistência e a evolução na programação.
+          </p>
+        </div>
+
+        <div class="interactive-split-grid">
+          <!-- Coluna 1: Computador Interativo de Frases -->
+          <div class="interactive-column-card">
+            <div class="card-kicker-row">
+              <span class="card-kicker-text">TELA INTERATIVA</span>
+              <span class="interactive-pill-badge">Clique para alternar</span>
+            </div>
+            <h3 class="card-inner-title">Computador de Ideias</h3>
+            <p class="card-inner-desc">
+              Clique diretamente na tela do computador para alternar as reflexões sobre programação:
+            </p>
+
+            <div class="screen-device-wrapper" id="clickable-screen" role="button" tabindex="0" aria-label="Clique para alternar mensagem na tela">
+              <div class="screen-monitor">
+                <div class="screen-bezel">
+                  <div class="screen-dots">
+                    <span class="s-dot red"></span>
+                    <span class="s-dot yellow"></span>
+                    <span class="s-dot green"></span>
+                  </div>
+                  <div class="screen-display">
+                    <span class="screen-prompt">&gt;</span>
+                    <p class="screen-text" id="screen-dynamic-text">Todo conhecimento começa com curiosidade.</p>
+                  </div>
+                  <div class="screen-hint-bar">
+                    <span>Toque na tela para mudar ↻</span>
+                  </div>
+                </div>
+              </div>
+              <div class="screen-stand"></div>
+              <div class="screen-base"></div>
+            </div>
+
+            <button class="btn btn-secondary w-full" id="btn-next-screen-quote">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <polyline points="23 4 23 10 17 10"></polyline>
+                <path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path>
+              </svg>
+              <span>Próxima mensagem</span>
+            </button>
+          </div>
+
+          <!-- Coluna 2: Uma Ideia Para Hoje (Gerador de Inspiração) -->
+          <div class="interactive-column-card">
+            <div class="card-kicker-row">
+              <span class="card-kicker-text">PENSAMENTO DO DIA</span>
+              <span class="interactive-pill-badge">Reflexão técnica</span>
+            </div>
+            <h3 class="card-inner-title">Uma ideia para hoje</h3>
+            <p class="card-inner-desc">
+              Lembretes essenciais sobre a constância e o aprendizado diário no universo da tecnologia:
+            </p>
+
+            <div class="quote-display-card">
+              <div class="quote-giant-mark" aria-hidden="true">&ldquo;</div>
+              <p class="quote-live-text" id="inspiration-live-text">
+                Aprender a programar é como aprender um novo idioma: a prática diária constrói a fluência.
+              </p>
+              <div class="quote-meta-row">
+                <span class="quote-topic-tag">Constância &amp; Dedicação</span>
+                <span class="quote-author-tag">Matheus Ismério</span>
+              </div>
+            </div>
+
+            <button class="btn btn-primary w-full" id="btn-shuffle-inspiration">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+              </svg>
+              <span>Gerar nova ideia</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Divisor Fino -->
+    <div class="section-divider-line" aria-hidden="true"></div>
+
+    <!-- =========================================================================
+         10. SEÇÃO OBJETIVOS (Concept Velto Bento Architecture)
+         ========================================================================= -->
+    <section class="section objetivos-section" id="objetivos">
+      <div class="container">
+        <div class="section-header-editorial">
+          <span class="section-kicker">09 // METAS PESSOAIS</span>
+          <h2 class="section-title-large">Meus objetivos na tecnologia</h2>
+          <p class="section-lead">
+            Direcionamentos claros que norteiam meu aprendizado e a construção do meu futuro como desenvolvedor.
+          </p>
+        </div>
+
+        <div class="objetivos-editorial-banner">
+          <div class="editorial-banner-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"></circle>
+              <circle cx="12" cy="12" r="6"></circle>
+              <circle cx="12" cy="12" r="2"></circle>
+            </svg>
+          </div>
+          <p class="editorial-banner-statement">
+            &ldquo;Quero aprofundar meus conhecimentos na área de tecnologia, aprender novas linguagens de programação e entender melhor as diferentes áreas de atuação dentro da informática. Também pretendo criar sites, desenvolver sistemas e descobrir qual área combina mais comigo profissionalmente.&rdquo;
+          </p>
+        </div>
+
+        <!-- 4 Pilares Principais em Grid Bento -->
+        <div class="objetivos-grid">
+          <article class="objetivo-card">
+            <div class="obj-number">01</div>
+            <h3 class="obj-title">Aprofundar conhecimentos</h3>
+            <p class="obj-text">
+              Ir além da superfície: entender o funcionamento interno de navegadores, computadores, redes e bancos de dados para construir programas mais eficientes.
+            </p>
+            <div class="obj-chip">Fundamentos &amp; Teoria</div>
+          </article>
+
+          <article class="objetivo-card">
+            <div class="obj-number">02</div>
+            <h3 class="obj-title">Aprender novas linguagens</h3>
+            <p class="obj-text">
+              Expandir horizontes técnicos conforme avançar no curso, explorando sintaxes e paradigmas diferentes de programação para ampliar possibilidades.
+            </p>
+            <div class="obj-chip">Diversificação Técnica</div>
+          </article>
+
+          <article class="objetivo-card">
+            <div class="obj-number">03</div>
+            <h3 class="obj-title">Desenvolver sites e sistemas</h3>
+            <p class="obj-text">
+              Transformar linhas de código em páginas reais, interfaces agradáveis e sistemas que facilitem a rotina das pessoas com praticidade e organização.
+            </p>
+            <div class="obj-chip">Aplicações Práticas</div>
+          </article>
+
+          <article class="objetivo-card">
+            <div class="obj-number">04</div>
+            <h3 class="obj-title">Descobrir minha vocação</h3>
+            <p class="obj-text">
+              Vivenciar na prática as diferentes frentes da computação — desenvolvimento front-end, back-end, dados e arquitetura — para definir meu foco de carreira.
+            </p>
+            <div class="obj-chip">Carreira Profissional</div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Divisor Fino -->
+    <div class="section-divider-line" aria-hidden="true"></div>
+
+    <!-- =========================================================================
+         11. SEÇÃO CONTATO (Organizada, Moderna e Funcional)
+         ========================================================================= -->
+    <section class="section contato-section" id="contato">
+      <div class="container">
+        <div class="section-header-editorial">
+          <span class="section-kicker">10 // CONEXÃO &amp; DIÁLOGO</span>
+          <h2 class="section-title-large">Entre em contato</h2>
+          <p class="section-lead">
+            Estou sempre aberto a trocar ideias sobre estudos de programação, tecnologia e oportunidades de aprendizado ou estágio na área técnica.
+          </p>
+        </div>
+
+        <div class="contato-grid">
+          <!-- Coluna de Informações de Contato -->
+          <div class="contato-info-panel">
+            <h3 class="contato-info-title">Vamos conversar?</h3>
+            <p class="contato-info-text">
+              Se você tem dicas sobre o mercado de tecnologia, recomendações de estudo ou deseja conhecer mais sobre meu desenvolvimento no curso técnico, entre em contato:
+            </p>
+
+            <div class="contato-cards-list">
+              <!-- Item 1: Localização -->
+              <div class="contato-item-box">
+                <div class="c-item-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                    <circle cx="12" cy="10" r="3"></circle>
+                  </svg>
+                </div>
+                <div>
+                  <span class="c-item-label">Localização</span>
+                  <span class="c-item-value">Campinas, SP — Brasil</span>
+                </div>
+              </div>
+
+              <!-- Item 2: Situação Atual -->
+              <div class="contato-item-box">
+                <div class="c-item-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                    <line x1="8" y1="21" x2="16" y2="21"></line>
+                    <line x1="12" y1="17" x2="12" y2="21"></line>
+                  </svg>
+                </div>
+                <div>
+                  <span class="c-item-label">Status Acadêmico</span>
+                  <span class="c-item-value">Estudante • 2º Ano Ensino Médio Técnico</span>
+                </div>
+              </div>
+
+              <!-- Item 3: E-mail Preparado com Copiar -->
+              <div class="contato-item-box">
+                <div class="c-item-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                    <polyline points="22,6 12,13 2,6"></polyline>
+                  </svg>
+                </div>
+                <div class="c-item-grow">
+                  <span class="c-item-label">E-mail para contato</span>
+                  <span class="c-item-value" id="contact-email-val">matheus.ismerio.dev@gmail.com</span>
+                </div>
+                <button class="btn-copy-email" id="btn-copy-email" title="Copiar e-mail" aria-label="Copiar endereço de e-mail">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                    <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Coluna Formulário de Mensagem -->
+          <div class="contato-form-panel">
+            <h3 class="form-title">Envie uma mensagem</h3>
+            <form id="contact-form" class="contact-form" autocomplete="on">
+              <div class="form-group">
+                <label for="form-name" class="form-label">Seu Nome</label>
+                <input type="text" id="form-name" name="name" class="form-input" placeholder="Como você se chama?" required>
+              </div>
+
+              <div class="form-group">
+                <label for="form-email" class="form-label">Seu E-mail</label>
+                <input type="email" id="form-email" name="email" class="form-input" placeholder="seuemail@exemplo.com" required>
+              </div>
+
+              <div class="form-group">
+                <label for="form-message" class="form-label">Mensagem</label>
+                <textarea id="form-message" name="message" class="form-textarea" rows="4" placeholder="Escreva sua mensagem, sugestão ou pergunta..." required></textarea>
+              </div>
+
+              <button type="submit" class="btn btn-primary w-full" id="btn-submit-form">
+                <span>Enviar mensagem</span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <line x1="22" y1="2" x2="11" y2="13"></line>
+                  <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                </svg>
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         12. MENSAGEM FINAL & ASSINATURA
+         ========================================================================= -->
+    <section class="section final-quote-section">
+      <div class="container">
+        <div class="final-quote-card">
+          <div class="final-sparkle" aria-hidden="true">✦</div>
+          <h2 class="final-heading">Este é apenas o começo da minha jornada.</h2>
+          <p class="final-text">
+            &ldquo;Este portfólio representa o início da minha trajetória na tecnologia. Mesmo ainda não tendo projetos profissionais publicados, utilizo este espaço para registrar minha evolução, apresentar meus conhecimentos e compartilhar meus futuros trabalhos. Acredito que aprender é um processo contínuo e que a dedicação diária constrói as maiores oportunidades.&rdquo;
+          </p>
+          <div class="final-author-block">
+            <h3 class="author-name">Matheus Ismério da Silva</h3>
+            <p class="author-title">Estudante de Desenvolvimento de Sistemas • Campinas, SP</p>
+            <p class="author-quote">&ldquo;Aprendendo hoje, evoluindo a cada dia e construindo meu caminho na tecnologia.&rdquo;</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Rodapé Institucional -->
+  <footer class="site-footer">
+    <div class="container footer-content">
+      <div class="footer-left">
+        <span class="footer-logo">MATHEUS<span class="logo-accent">.DEV</span></span>
+        <p class="footer-copy">
+          &copy; <span id="current-year">2026</span> Matheus Ismério da Silva. Todos os direitos reservados.
+        </p>
+      </div>
+      <div class="footer-right">
+        <span class="footer-badge">Desenvolvimento de Sistemas</span>
+        <span class="footer-tech-stack">Construído com HTML5, CSS3 e JavaScript Puro</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Botão Voltar ao Topo -->
+  <button class="back-to-top" id="btn-back-to-top" aria-label="Voltar para o topo da página" title="Voltar ao topo">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <polyline points="18 15 12 9 6 15"></polyline>
+    </svg>
+  </button>
+
+  <!-- Script Principal -->
+  <script src="script.js"></script>
+</body>
+</html>
